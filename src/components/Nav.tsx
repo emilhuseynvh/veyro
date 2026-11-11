@@ -3,10 +3,10 @@ import { Logo } from "./Logo";
 import { DownloadCTA } from "./DownloadCTA";
 
 const links = [
-  { href: "#how-it-works", label: "How it works" },
-  { href: "#gallery", label: "Designs" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/#gallery", label: "Designs" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Nav() {
@@ -23,9 +23,9 @@ export function Nav() {
           <ul className="hidden items-center gap-6 text-[0.9375rem] font-medium text-ink-2 md:flex">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="transition-colors hover:text-ink">
+                <Link href={l.href} className="transition-colors hover:text-ink">
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

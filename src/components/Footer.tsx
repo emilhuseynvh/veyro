@@ -6,16 +6,16 @@ const groups = [
   {
     title: "Product",
     links: [
-      { href: "#how-it-works", label: "How it works" },
-      { href: "#gallery", label: "Designs" },
-      { href: "#pricing", label: "Pricing" },
-      { href: "#download", label: "Download" },
+      { href: "/#how-it-works", label: "How it works" },
+      { href: "/#gallery", label: "Designs" },
+      { href: "/#pricing", label: "Pricing" },
+      { href: "/#download", label: "Download" },
     ],
   },
   {
     title: "Help",
     links: [
-      { href: "#faq", label: "FAQ" },
+      { href: "/#faq", label: "FAQ" },
       { href: `mailto:${site.email}`, label: "Email support" },
       { href: site.social.github, label: "GitHub" },
       { href: site.social.x, label: "X" },
