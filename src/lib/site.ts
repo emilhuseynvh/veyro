@@ -26,9 +26,9 @@ export const site = {
     iphone: "iPhone on iOS 17 or later, connected by cable or Wi-Fi sync",
   },
   download: {
-    url: "/download/Veyro.dmg?v=2",
+    url: "/download/Veyro.dmg?v=3",
     version: "1.0.0",
-    size: "181 MB",
+    size: "103 MB",
   },
   launched: "2026-11-10",
 } as const;
@@ -53,7 +53,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Which Mac and iPhone do I need?",
-    a: "A Mac on macOS 14 Sonoma or later, Apple silicon or Intel, and an iPhone on iOS 17 or later. Connect by USB cable, or over Wi-Fi if your iPhone already syncs wirelessly with that Mac.",
+    a: "A Mac on macOS 14 Sonoma or later, on Apple silicon, and an iPhone on iOS 17 or later. Connect by USB cable, or over Wi-Fi if your iPhone already syncs wirelessly with that Mac.",
   },
   {
     q: "Can I upload my own image?",

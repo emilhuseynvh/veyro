@@ -19,15 +19,32 @@ function getRootDirs() {
   ];
 }
 
+// In the packaged app the Python backend and its bin/ live in
+// Contents/Resources/backend (see build.extraResources). In dev they live in
+// the repo, found via getRootDirs.
+function bundledBackend() {
+  return process.resourcesPath
+    ? path.join(process.resourcesPath, "backend")
+    : null;
+}
+
 function findScript(name) {
+  const bundled = bundledBackend();
+  if (bundled && fs.existsSync(path.join(bundled, name))) {
+    return path.join(bundled, name);
+  }
   for (const r of getRootDirs()) {
     const p = path.join(r, name);
     if (fs.existsSync(p)) return p;
   }
-  return path.resolve(__dirname, "../../..", name);
+  return bundled ? path.join(bundled, name) : path.resolve(__dirname, "../../..", name);
 }
 
 function findBinary(name) {
+  const bundled = bundledBackend();
+  if (bundled && fs.existsSync(path.join(bundled, "bin", name))) {
+    return path.join(bundled, "bin", name);
+  }
   for (const r of getRootDirs()) {
     const p = path.join(r, "bin", name);
     if (fs.existsSync(p)) return p;

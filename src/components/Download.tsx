@@ -17,7 +17,7 @@ export function Download() {
               </h2>
               <p className="lede mt-5">
                 Version {site.download.version}, {site.download.size}. Runs
-                natively on Apple silicon and Intel. Needs{" "}
+                natively on Apple silicon. Needs{" "}
                 {site.requirements.mac}.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">

@@ -11,7 +11,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-APP="${1:-release/mac-universal/Veyro.app}"
+APP="${1:-release/mac-arm64/Veyro.app}"
 OUT="${2:-release/Veyro.dmg}"
 VOL="Veyro"
 WIN_W=540
