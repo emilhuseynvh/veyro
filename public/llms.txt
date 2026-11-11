@@ -1,0 +1,37 @@
+# Veyro
+
+> Veyro is a Mac app that changes the artwork of credit, debit and transit cards in Apple Wallet on your iPhone. Choose from a gallery of designs or upload your own image. Payments, card numbers and balances stay exactly the same.
+
+Website: https://veyro.biz
+Contact: hello@veyro.biz
+Platform: macOS 14 Sonoma or later (Apple silicon and Intel). Works with an iPhone on iOS 17 or later, connected by USB cable or Wi-Fi sync.
+Jailbreak required: No
+Account required: No
+Data sent to servers: None. Veyro runs entirely on the Mac.
+
+## What Veyro does
+
+- Mirrors the cards in Apple Wallet on a connected iPhone and shows which can be restyled.
+- Lets the user drag a design from a built-in gallery, or drop their own PNG or JPG, onto a card.
+- Writes the new card artwork to the iPhone. The restyled card appears in Wallet and at payment time.
+- Keeps the original artwork of every card. Each card has undo, and the whole wallet can be rewound to its first-connection state.
+- Changes only the image shown on the card. Apple Pay, card numbers, expiry dates, balances and bank connections are untouched.
+
+## Pricing (all one-time, USD)
+
+- First upload: free
+- Five uploads: $4.99
+- Thirty days unlimited: $14.99, does not renew
+- Lifetime unlimited: $19.99, includes all future updates
+- Refunds: within 14 days, any reason
+
+## Pages
+
+- [Home](https://veyro.biz/): product overview, how it works, comparison with Apple Wallet, pricing, download, FAQ
+- [FAQ](https://veyro.biz/#faq): answers on safety, Apple Pay compatibility, reverting cards, requirements, macOS approval and refunds
+- [Pricing](https://veyro.biz/#pricing)
+- [Download](https://veyro.biz/#download)
+
+## Not affiliated
+
+Veyro is an independent project. Apple, Apple Pay, Apple Wallet, iPhone and Mac are trademarks of Apple Inc. Veyro is not affiliated with or endorsed by Apple.

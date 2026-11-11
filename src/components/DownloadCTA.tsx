@@ -1,0 +1,133 @@
+"use client";
+
+import { useEffect, useState, type ReactNode } from "react";
+import { site } from "@/lib/site";
+import { AppleMark, Check, Cross } from "./icons";
+
+/**
+ * Download button that knows where it is. On a Mac it downloads the .dmg
+ * directly. On a phone or anything else it opens a small modal so the visitor
+ * can send the link to their Mac, the way CardLARP does.
+ */
+export function DownloadCTA({
+  className = "btn btn-ink",
+  apple = true,
+  children,
+}: {
+  className?: string;
+  apple?: boolean;
+  children: ReactNode;
+}) {
+  // Assume Mac during SSR so the plain anchor download still works without JS.
+  const [isMac, setIsMac] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isApplePhone = /iPhone|iPad|iPod/.test(ua);
+    // iPadOS reports as "Macintosh" but has a touch screen.
+    const isIpadOS = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
+    const mac = /Macintosh|Mac OS X/.test(ua) && !isApplePhone && !isIpadOS;
+    setIsMac(mac);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  const shareUrl = site.url;
+  const mailHref = `mailto:?subject=${encodeURIComponent(
+    `${site.name} for Mac`,
+  )}&body=${encodeURIComponent(
+    `Open this on your Mac to download ${site.name}: ${shareUrl}`,
+  )}`;
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard blocked — the email option still works */
+    }
+  }
+
+  return (
+    <>
+      <a
+        href={site.download.url}
+        download
+        onClick={(e) => {
+          if (!isMac) {
+            e.preventDefault();
+            setOpen(true);
+          }
+        }}
+        className={className}
+      >
+        {apple && <AppleMark className="h-4 w-4" />}
+        {children}
+      </a>
+
+      {open && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="sendmac-title"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+        >
+          <button
+            aria-label="Close"
+            className="absolute inset-0 cursor-default bg-black/65 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+          />
+          <div className="surface relative w-full max-w-md rounded-3xl p-7 shadow-[0_40px_90px_-24px_rgba(0,0,0,.8)] sm:p-8">
+            <button
+              aria-label="Close"
+              onClick={() => setOpen(false)}
+              className="absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full text-mute transition-colors hover:bg-white/10 hover:text-ink"
+            >
+              <Cross className="h-4 w-4" />
+            </button>
+            <h3 id="sendmac-title" className="display display-sm">
+              {site.name} runs on your Mac.
+            </h3>
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-2">
+              {site.name} is a Mac app that restyles the cards on your connected
+              iPhone. Send yourself the link and open it on your Mac to
+              download.
+            </p>
+            <div className="mt-6 flex flex-col gap-3">
+              <button
+                type="button"
+                onClick={copyLink}
+                className="btn btn-ink w-full"
+              >
+                {copied ? (
+                  <>
+                    <Check className="h-4 w-4" />
+                    Link copied
+                  </>
+                ) : (
+                  "Copy link"
+                )}
+              </button>
+              <a href={mailHref} className="btn btn-ghost w-full">
+                Email me the link
+              </a>
+            </div>
+            <p className="mt-4 text-xs text-mute">
+              Needs {site.requirements.mac}.
+            </p>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

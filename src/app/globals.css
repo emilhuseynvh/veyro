@@ -1,0 +1,429 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark fintech theme: near-black canvas, lime + purple accents. */
+  --paper: #09090b;
+  --white: #ffffff;
+  --ink: #f4f4f5;
+  --ink-2: #b2b2ba;
+  --mute: #7c7c86;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.17);
+  --surface: #141417;
+  --surface-2: #1b1b20;
+  --accent: #cdfb45;
+  --accent-ink: #0b0d07;
+  --accent-soft: rgba(205, 251, 69, 0.13);
+  --purple: #9453ff;
+  --purple-2: #8339ff;
+  --purple-soft: rgba(148, 83, 255, 0.16);
+  --night: #0f0f12;
+  --night-2: #17171c;
+  --radius-card: 18px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-purple: var(--purple);
+  --color-purple-2: var(--purple-2);
+  --color-purple-soft: var(--purple-soft);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-body), system-ui, sans-serif;
+  --ease-out-soft: var(--ease);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Type scale. Display sizes use Bricolage with its optical axis wide open. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  font-variation-settings: "opsz" 96, "wdth" 100;
+  text-wrap: balance;
+}
+.display-lg {
+  font-size: clamp(2.75rem, 7.2vw, 6.5rem);
+}
+.display-md {
+  font-size: clamp(2.125rem, 4.4vw, 3.75rem);
+}
+.display-sm {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+.lede {
+  font-size: clamp(1.0625rem, 1.4vw, 1.3125rem);
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: pretty;
+  max-width: 34em;
+}
+.measure {
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.container-x {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* Component classes live in the components layer so Tailwind utilities
+   (absolute, h-10, etc.) can still override them. */
+@layer components {
+/* Buttons: one pill family, two weights. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  padding-inline: 1.375rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform 0.25s var(--ease),
+    background-color 0.25s var(--ease),
+    color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+/* Primary: purple pill. */
+.btn-accent {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 10px 30px -10px rgba(148, 83, 255, 0.6);
+}
+.btn-accent:hover {
+  background: var(--purple-2);
+}
+/* Lime pill, black text. */
+.btn-lime {
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 10px 30px -12px rgba(205, 251, 69, 0.5);
+}
+.btn-lime:hover {
+  filter: brightness(1.06);
+}
+/* Inverse: solid light pill. */
+.btn-ink {
+  background: #fff;
+  color: #0b0b0d;
+}
+.btn-ink:hover {
+  background: #e9e9ec;
+}
+/* Outline pill on dark. */
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+.btn-ghost:hover {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.04);
+}
+/* Soft surface pill. */
+.btn-light {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+.btn-light:hover {
+  background: #26262c;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Section rhythm. A single rule so spacing never fights itself. */
+.section {
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
+/* A light band on the dark page. Flips the theme tokens locally so every
+   token-based utility (text-ink, bg-surface, ring-line…) adapts automatically.
+   Brand colours (lime, purple) stay the same. */
+.section-light {
+  background: #f5f5f7;
+  color: #15161a;
+  --ink: #15161a;
+  --ink-2: #4b4e58;
+  --mute: #6b6f7a;
+  --line: rgba(21, 22, 26, 0.12);
+  --line-strong: rgba(21, 22, 26, 0.2);
+  --surface: #ffffff;
+  --surface-2: #ececf0;
+  --accent-soft: rgba(21, 22, 26, 0.06);
+}
+.section-tight {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+/* Wallet card. Aspect ratio of a real ISO/IEC 7810 ID-1 card. */
+.wcard {
+  position: relative;
+  aspect-ratio: 1.586 / 1;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 1.5px 2px rgba(21, 22, 26, 0.08),
+    0 18px 40px -16px rgba(21, 22, 26, 0.35);
+  isolation: isolate;
+}
+.wcard::after {
+  /* Specular sweep that reads as laminate, not a gradient wash. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.18) 45%,
+    rgba(255, 255, 255, 0.04) 55%,
+    transparent 70%
+  );
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.wcard-face {
+  position: absolute;
+  inset: 0;
+}
+
+/* Hero stage swap */
+.swap-enter {
+  animation: swap-in 0.7s var(--ease) both;
+}
+@keyframes swap-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Gallery strip */
+.marquee {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: marquee 48s linear infinite;
+}
+.marquee-track:hover .marquee {
+  animation-play-state: paused;
+}
+.marquee-reverse {
+  animation-direction: reverse;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Details/summary FAQ without the default marker */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-icon {
+  transition: transform 0.3s var(--ease);
+}
+
+/* Photo frames */
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--night-2);
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.photo-tag {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.625rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px -12px rgba(21, 22, 26, 0.5);
+}
+.photo-tag-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+/* iPhone mockup, dark, for Wallet scenes */
+.iphone {
+  position: relative;
+  border-radius: 44px;
+  background: #0a0a0c;
+  padding: 10px;
+  box-shadow:
+    0 0 0 2px #26262c,
+    0 0 0 9px #141418,
+    0 50px 90px -34px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.iphone-island {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32%;
+  height: 22px;
+  background: #000;
+  border-radius: 999px;
+  z-index: 6;
+}
+.iphone-screen {
+  position: relative;
+  border-radius: 36px;
+  background: #000;
+  overflow: hidden;
+  padding: 38px 14px 16px;
+}
+
+/* Scroll reveal. Only hides when JS is present (html.js), so no-JS visitors
+   and crawlers always see the content. .is-in plays the entrance once. */
+.reveal {
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+}
+.js .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: opacity, transform;
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Mac app window mockup */
+.macwin {
+  border-radius: 14px;
+  background: #121216;
+  color: #fff;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 30px 60px -24px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+/* Surfaces & glass for the dark theme */
+.surface {
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.glass {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 30px 60px -24px rgba(0, 0, 0, 0.7);
+}
+/* Ambient colour glows behind hero art */
+.glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-lime {
+  background: radial-gradient(circle, rgba(205, 251, 69, 0.5), transparent 70%);
+}
+.glow-purple {
+  background: radial-gradient(circle, rgba(148, 83, 255, 0.55), transparent 70%);
+}
+} /* end @layer components */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee,
+  .swap-enter {
+    animation: none;
+  }
+  .btn,
+  .faq-icon {
+    transition: none;
+  }
+}
