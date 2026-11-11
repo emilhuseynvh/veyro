@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { site } from "@/lib/site";
 import { AppleMark, Check, Cross } from "./icons";
 
@@ -38,7 +39,13 @@ export function DownloadCTA({
       if (e.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    // Keep the page from scrolling behind the modal.
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
   }, [open]);
 
   const shareUrl = site.url;
@@ -91,12 +98,15 @@ export function DownloadCTA({
         {children}
       </a>
 
-      {open && (
+      {/* Portal to <body>: the nav uses backdrop-filter, which would otherwise
+          trap this fixed overlay inside the nav instead of the viewport. */}
+      {open &&
+        createPortal(
         <div
           role="dialog"
           aria-modal="true"
           aria-labelledby="sendmac-title"
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto p-4"
         >
           <button
             aria-label="Close"
@@ -142,8 +152,9 @@ export function DownloadCTA({
               Needs {site.requirements.mac}.
             </p>
           </div>
-        </div>
-      )}
+        </div>,
+          document.body,
+        )}
     </>
   );
 }
