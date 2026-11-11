@@ -48,6 +48,21 @@ export function DownloadCTA({
     `Open this on your Mac to download ${site.name}: ${shareUrl}`,
   )}`;
 
+  function pingDownload(platform: "mac" | "other") {
+    const api = process.env.NEXT_PUBLIC_API_URL;
+    if (!api) return;
+    try {
+      void fetch(`${api}/api/v1/downloads`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ platform, version: site.download.version }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      /* analytics is best-effort */
+    }
+  }
+
   async function copyLink() {
     try {
       await navigator.clipboard.writeText(shareUrl);
@@ -64,6 +79,7 @@ export function DownloadCTA({
         href={site.download.url}
         download
         onClick={(e) => {
+          pingDownload(isMac ? "mac" : "other");
           if (!isMac) {
             e.preventDefault();
             setOpen(true);

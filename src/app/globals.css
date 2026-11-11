@@ -321,6 +321,7 @@ details[open] .faq-icon {
 /* iPhone mockup, dark, for Wallet scenes */
 .iphone {
   position: relative;
+  isolation: isolate;
   border-radius: 44px;
   background: #0a0a0c;
   padding: 10px;

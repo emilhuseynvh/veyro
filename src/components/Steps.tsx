@@ -63,7 +63,7 @@ function ConnectScene() {
   return (
     <div className="relative w-[56%]" aria-hidden>
       <PhoneMock ids={["BpK2IddcN7", "XeAU6pVlv9"]} />
-      <span className="absolute -right-3 top-6 inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0b0b0d] shadow-lg">
+      <span className="absolute right-0 top-10 z-10 inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0b0b0d] shadow-lg">
         <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
         iPhone connected
       </span>
@@ -133,7 +133,7 @@ function ApplyScene() {
   return (
     <div className="relative w-[56%]" aria-hidden>
       <PhoneMock ids={["Ckzksw0UQb", "8cq1E7PpGz", "HWu3ftXOjs"]} />
-      <span className="absolute -left-3 bottom-8 inline-flex items-center gap-1.5 rounded-full bg-black/80 px-2.5 py-1 text-[11px] font-semibold text-white shadow-lg ring-1 ring-white/15 backdrop-blur">
+      <span className="absolute -left-2 bottom-8 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/80 px-2.5 py-1 text-[11px] font-semibold text-white shadow-lg ring-1 ring-white/15 backdrop-blur">
         <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
         Applied to iPhone
       </span>
