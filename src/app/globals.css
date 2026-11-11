@@ -319,35 +319,50 @@ details[open] .faq-icon {
 }
 
 /* iPhone mockup, dark, for Wallet scenes */
+/* Real iPhone proportions (≈ 71.5 × 147 mm). Everything inside is sized in
+   cqw so a small phone in a step tile looks like a big one, scaled down. */
 .iphone {
   position: relative;
   isolation: isolate;
-  border-radius: 44px;
+  container-type: inline-size;
+  aspect-ratio: 71.5 / 147;
+  border-radius: 14.5% / 7%;
   background: #0a0a0c;
-  padding: 10px;
+  padding: 3.2%;
   box-shadow:
-    0 0 0 2px #26262c,
-    0 0 0 9px #141418,
-    0 50px 90px -34px rgba(0, 0, 0, 0.7),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    0 0 0 2px #2a2a31,
+    0 0 0 6px #141418,
+    0 50px 90px -34px rgba(0, 0, 0, 0.75),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 .iphone-island {
   position: absolute;
-  top: 16px;
+  top: 2.6%;
   left: 50%;
   transform: translateX(-50%);
-  width: 32%;
-  height: 22px;
+  width: 31%;
+  aspect-ratio: 3.4 / 1;
   background: #000;
   border-radius: 999px;
   z-index: 6;
 }
 .iphone-screen {
   position: relative;
-  border-radius: 36px;
+  height: 100%;
+  border-radius: 12% / 5.8%;
   background: #000;
   overflow: hidden;
-  padding: 38px 14px 16px;
+  padding: 13cqw 4.5cqw 0;
+}
+.iphone-home {
+  position: absolute;
+  bottom: 1.4%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 1.6cqw;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
 }
 
 /* Scroll reveal. Only hides when JS is present (html.js), so no-JS visitors

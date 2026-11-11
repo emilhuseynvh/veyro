@@ -28,7 +28,7 @@ export function Moments() {
       <div className="container-x grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal className="order-2 flex justify-center lg:order-1">
           <PhoneMock
-            ids={["XeAU6pVlv9", "8cq1E7PpGz", "BpK2IddcN7"]}
+            ids={["Ckzksw0UQb", "8ETnWyn0tf", "XeAU6pVlv9", "8cq1E7PpGz", "BpK2IddcN7"]}
             className="w-[300px] max-w-full"
           />
         </Reveal>

@@ -113,7 +113,7 @@ function Feature({
 /** Phone-in-scene with floating cards and ambient colour glows. */
 function HeroArt() {
   return (
-    <div className="relative mx-auto h-[520px] w-full max-w-[520px]">
+    <div className="relative mx-auto h-[560px] w-full max-w-[520px] sm:h-[600px]">
       <div className="glow glow-purple left-[-6%] top-[8%] h-[300px] w-[300px]" />
       <div className="glow glow-lime right-[-4%] bottom-[6%] h-[280px] w-[280px]" />
 
@@ -155,8 +155,8 @@ function HeroArt() {
       </div>
 
       {/* phone, front and centre */}
-      <div className="absolute left-1/2 top-0 w-[58%] -translate-x-1/2">
-        <PhoneMock ids={["BpK2IddcN7", "XeAU6pVlv9", "8ETnWyn0tf"]} />
+      <div className="absolute left-1/2 top-0 w-[50%] max-w-[270px] -translate-x-1/2">
+        <PhoneMock ids={["HWu3ftXOjs", "Ckzksw0UQb", "BpK2IddcN7", "XeAU6pVlv9", "8ETnWyn0tf"]} />
       </div>
     </div>
   );

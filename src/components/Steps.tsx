@@ -61,9 +61,9 @@ export function Steps() {
 /** Step 1: iPhone connects to the Mac. */
 function ConnectScene() {
   return (
-    <div className="relative w-[56%]" aria-hidden>
+    <div className="absolute left-1/2 top-[9%] w-[44%] -translate-x-1/2" aria-hidden>
       <PhoneMock ids={["BpK2IddcN7", "XeAU6pVlv9"]} />
-      <span className="absolute right-0 top-10 z-10 inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0b0b0d] shadow-lg">
+      <span className="absolute left-[58%] top-[15%] z-10 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0b0b0d] shadow-lg">
         <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
         iPhone connected
       </span>
@@ -131,9 +131,9 @@ function PickScene() {
 /** Step 3: the restyled card now living in the iPhone's Wallet. */
 function ApplyScene() {
   return (
-    <div className="relative w-[56%]" aria-hidden>
+    <div className="absolute left-1/2 top-[9%] w-[44%] -translate-x-1/2" aria-hidden>
       <PhoneMock ids={["Ckzksw0UQb", "8cq1E7PpGz", "HWu3ftXOjs"]} />
-      <span className="absolute -left-2 bottom-8 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/80 px-2.5 py-1 text-[11px] font-semibold text-white shadow-lg ring-1 ring-white/15 backdrop-blur">
+      <span className="absolute right-[62%] top-[40%] z-10 inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-[#0b0b0d] shadow-lg">
         <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
         Applied to iPhone
       </span>
