@@ -18,13 +18,13 @@ const steps = [
   },
   {
     n: "2",
-    title: "Open it from Applications",
-    body: "Double-click Veyro. macOS shows a notice because the app is from outside the App Store. Leave it on screen and go to the next step.",
+    title: "Right-click and choose Open",
+    body: "In Applications, right-click (or Control-click) Veyro and choose Open. macOS shows a notice because the app is from outside the App Store — leave it on screen.",
   },
   {
     n: "3",
     title: "Click Open Anyway",
-    body: "Open System Settings → Privacy & Security, scroll to Security, and click “Open Anyway” next to Veyro. Confirm with Open. You only do this once.",
+    body: "If the notice has an Open button, click it. If not, open System Settings → Privacy & Security, scroll to Security, and click “Open Anyway” next to Veyro, then confirm. You only do this once.",
   },
 ];
 
@@ -61,7 +61,21 @@ export default function OpenPage() {
             ))}
           </ol>
 
-          <div className="mt-10 rounded-2xl bg-surface p-6 ring-1 ring-line sm:p-7">
+          <div className="mt-6 rounded-2xl bg-surface p-6 ring-1 ring-line sm:p-7">
+            <h2 className="text-lg font-semibold text-ink">
+              Still says it can&rsquo;t be opened?
+            </h2>
+            <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-2">
+              On some macOS versions the quarantine flag has to be cleared by
+              hand. Open Terminal and run this once, then open {site.name}{" "}
+              normally:
+            </p>
+            <pre className="mt-3 overflow-x-auto rounded-xl bg-black/50 p-4 text-[0.8125rem] text-ink ring-1 ring-line">
+              <code>xattr -dr com.apple.quarantine /Applications/Veyro.app</code>
+            </pre>
+          </div>
+
+          <div className="mt-6 rounded-2xl bg-surface p-6 ring-1 ring-line sm:p-7">
             <h2 className="text-lg font-semibold text-ink">
               Why does macOS ask?
             </h2>

@@ -28,6 +28,14 @@ trap 'hdiutil detach "/Volumes/$VOL" -force >/dev/null 2>&1 || true; rm -rf "$WO
 echo "==> Staging"
 mkdir -p "$STAGE/.background"
 ditto "$APP" "$STAGE/Veyro.app"
+# electron-builder left the app with Electron's own signature, which no longer
+# matches after we renamed it and added the backend — macOS calls that
+# "damaged". Re-seal the whole bundle with a valid ad-hoc signature so it opens
+# via the normal "unidentified developer" flow.
+echo "==> Ad-hoc signing"
+codesign --remove-signature "$STAGE/Veyro.app" 2>/dev/null || true
+codesign --force --deep --sign - --identifier biz.veyro.app "$STAGE/Veyro.app"
+codesign --verify --deep --strict "$STAGE/Veyro.app" && echo "signature valid"
 ln -s /Applications "$STAGE/Applications"
 # One multi-resolution TIFF so the background is sharp on Retina screens.
 tiffutil -cathidpicheck build/background.png build/background@2x.png \
