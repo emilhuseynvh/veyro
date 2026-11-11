@@ -1,6 +1,16 @@
-import { plans } from "@/lib/site";
+import { site } from "@/lib/site";
 import { Check } from "./icons";
+import { DownloadCTA } from "./DownloadCTA";
 import { Reveal } from "./Reveal";
+
+const included = [
+  "Unlimited uploads",
+  "The full design gallery",
+  "Your own PNG or JPG on any card",
+  "Undo on every card",
+  "No account, no card details",
+  "Every update during early access",
+];
 
 export function Pricing() {
   return (
@@ -8,83 +18,45 @@ export function Pricing() {
       <div className="container-x">
         <div className="max-w-2xl">
           <h2 id="pricing-title" className="display display-md">
-            Your first upload is free. After that, pay once.
+            Free while we&rsquo;re
+            <br />
+            in early access.
           </h2>
           <p className="lede mt-5">
-            No subscriptions. Pick what fits, and undo is always free.
+            There is nothing to buy yet. Download {site.name} and every feature
+            is unlocked.
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-5 md:grid-cols-3">
-          {plans.map((p, i) => {
-            const featured = p.highlight === "value";
-            return (
-              <Reveal
-                as="li"
-                key={p.id}
-                delay={i * 90}
-                className={`flex flex-col rounded-2xl p-7 sm:p-8 ${
-                  featured
-                    ? "bg-surface-2 text-white ring-1 ring-purple/60 shadow-[0_30px_80px_-30px_rgba(148,83,255,.5)]"
-                    : "bg-surface ring-1 ring-line"
-                }`}
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-lg font-semibold">{p.name}</h3>
-                  {p.highlight && (
-                    <span
-                      className={`rounded-full px-2.5 py-1 text-xs font-medium ${
-                        featured
-                          ? "bg-accent text-accent-ink"
-                          : "bg-accent-soft text-accent"
-                      }`}
-                    >
-                      {p.highlight === "value" ? "Best value" : "Most chosen"}
-                    </span>
-                  )}
-                </div>
-                <p
-                  className={`mt-1.5 text-sm ${featured ? "text-white/65" : "text-mute"}`}
-                >
-                  {p.summary}
-                </p>
-                <p className="mt-7 flex items-baseline gap-1.5">
-                  <span className="display display-md tabular-nums">
-                    ${p.price.toFixed(2)}
-                  </span>
-                  <span
-                    className={`text-sm ${featured ? "text-white/65" : "text-mute"}`}
-                  >
-                    {p.period}
-                  </span>
-                </p>
-                <ul className="mt-7 space-y-3 text-[0.9375rem]">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <Check
-                        className={`mt-0.5 h-4 w-4 shrink-0 ${
-                          featured ? "text-white" : "text-accent"
-                        }`}
-                      />
-                      <span className={featured ? "text-white/85" : "text-ink-2"}>
-                        {f}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#download"
-                  className={`btn mt-8 w-full ${featured ? "btn-accent" : "btn-ghost"}`}
-                >
-                  Start with the free upload
-                </a>
-              </Reveal>
-            );
-          })}
-        </ul>
+        <Reveal className="mt-14 grid gap-10 rounded-3xl bg-surface-2 p-8 ring-1 ring-purple/50 shadow-[0_30px_80px_-30px_rgba(148,83,255,.45)] sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:p-12">
+          <div>
+            <span className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-ink">
+              Early access
+            </span>
+            <p className="mt-6 flex items-baseline gap-2">
+              <span className="display display-lg tabular-nums">$0</span>
+              <span className="text-mute">no card needed</span>
+            </p>
+            <div className="mt-8">
+              <DownloadCTA className="btn btn-accent">Download for Mac</DownloadCTA>
+            </div>
+          </div>
+
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {included.map((f) => (
+              <li key={f} className="flex items-start gap-3 text-[0.9375rem] text-ink-2">
+                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-accent-ink">
+                  <Check className="h-3.5 w-3.5" />
+                </span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
         <p className="mt-6 max-w-2xl text-sm text-mute">
-          Paid plans are not on sale yet. Prices are in USD, before local
-          taxes, and every paid plan will carry a 14-day refund.
+          If paid plans arrive later, they will be announced here first, before
+          anything changes.
         </p>
       </div>
     </section>

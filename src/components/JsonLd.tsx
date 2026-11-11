@@ -1,4 +1,4 @@
-import { site, faqs, plans, steps } from "@/lib/site";
+import { site, faqs, steps } from "@/lib/site";
 
 /**
  * One @graph with stable @ids so Organization, WebSite, SoftwareApplication,
@@ -86,19 +86,12 @@ export function JsonLd() {
         offers: [
           {
             "@type": "Offer",
-            name: "First upload",
+            name: "Early access",
             price: "0",
             priceCurrency: "USD",
             availability: "https://schema.org/InStock",
-          },
-          ...plans.map((p) => ({
-            "@type": "Offer",
-            name: p.name,
-            price: p.price.toFixed(2),
-            priceCurrency: "USD",
-            availability: "https://schema.org/InStock",
             url: `${site.url}/#pricing`,
-          })),
+          },
         ],
       },
       {

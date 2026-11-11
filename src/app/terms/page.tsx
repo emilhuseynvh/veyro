@@ -21,8 +21,9 @@ export default function TermsPage() {
           </p>
           <h2 className="display display-sm mt-12">What you get</h2>
           <p className="mt-3 text-ink-2">
-            A licence to use {site.name} on Macs you own. The first upload is
-            free. Paid tiers are one-time purchases and never renew.
+            A licence to use {site.name} on Macs you own. It is free during
+            early access. If paid plans are introduced later, they will be
+            announced on this site first, with their terms, before anyone pays.
           </p>
           <h2 className="display display-sm mt-12">What it changes</h2>
           <p className="mt-3 text-ink-2">
@@ -32,8 +33,9 @@ export default function TermsPage() {
           </p>
           <h2 className="display display-sm mt-12">Refunds</h2>
           <p className="mt-3 text-ink-2">
-            Within 14 days of purchase, for any reason. Email {site.email} with
-            your order number.
+            There is nothing to refund while {site.name} is free. Any paid plan
+            introduced later will publish its refund terms here before it goes
+            on sale.
           </p>
           <h2 className="display display-sm mt-12">No affiliation</h2>
           <p className="mt-3 text-ink-2">

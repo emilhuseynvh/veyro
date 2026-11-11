@@ -110,7 +110,7 @@ export default async function OpenGraphImage() {
             color: "#b2b2ba",
           }}
         >
-          Restyle the cards in Apple Wallet from your Mac. First upload free.
+          Restyle the cards in Apple Wallet from your Mac. Free in early access.
         </div>
 
         {/* footer pill */}

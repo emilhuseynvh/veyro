@@ -10,7 +10,7 @@ export const site = {
   definition:
     "Veyro is a Mac app that changes the artwork of credit, debit and transit cards in Apple Wallet on your iPhone. Choose from a gallery of designs or upload your own image. Payments, card numbers and balances stay exactly the same.",
   description:
-    "Change the look of your Apple Pay cards. Veyro restyles the card art in Apple Wallet from your Mac with thousands of designs or your own image. No jailbreak, no account, first upload free.",
+    "Change the look of your Apple Pay cards. Veyro restyles the card art in Apple Wallet from your Mac with thousands of designs or your own image. No jailbreak, no account, free during early access.",
   keywords: [
     "Apple Wallet card design",
     "custom Apple Pay card",
@@ -33,59 +33,6 @@ export const site = {
   launched: "2026-11-10",
 } as const;
 
-export type Plan = {
-  id: string;
-  name: string;
-  price: number;
-  period: string;
-  summary: string;
-  features: string[];
-  highlight?: "popular" | "value";
-};
-
-export const plans: Plan[] = [
-  {
-    id: "pack",
-    name: "Five uploads",
-    price: 4.99,
-    period: "one time",
-    summary: "Enough to dress every card you actually use.",
-    features: [
-      "5 artwork uploads",
-      "Full design gallery",
-      "Undo on every card",
-      "Never expires",
-    ],
-    highlight: "popular",
-  },
-  {
-    id: "lifetime",
-    name: "Lifetime",
-    price: 19.99,
-    period: "one time",
-    summary: "Unlimited uploads, every future update, forever.",
-    features: [
-      "Unlimited uploads",
-      "Full design gallery",
-      "Early access to new designs",
-      "All future versions included",
-    ],
-    highlight: "value",
-  },
-  {
-    id: "month",
-    name: "Thirty days",
-    price: 14.99,
-    period: "one time, does not renew",
-    summary: "Unlimited for a month, then it simply stops.",
-    features: [
-      "Unlimited uploads for 30 days",
-      "Full design gallery",
-      "Undo stays free after",
-      "No subscription",
-    ],
-  },
-];
 
 export const faqs: { q: string; a: string }[] = [
   {
@@ -122,11 +69,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What does it cost?",
-    a: "Your first upload is free. After that choose five uploads for $4.99, thirty days unlimited for $14.99, or lifetime unlimited for $19.99. Every price is one time. Nothing renews.",
-  },
-  {
-    q: "Can I get a refund?",
-    a: "Yes, within 14 days of purchase, for any reason. Email hello@veyro.biz with your order number.",
+    a: "Nothing right now. Veyro is free while it is in early access: unlimited uploads, the full gallery and undo, with no account and no card details. If paid plans come later, they will be announced on this site before anything changes.",
   },
 ];
 

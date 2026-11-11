@@ -55,9 +55,10 @@ export default function PrivacyPage() {
 
           <h2 className="display display-sm mt-12">Payments</h2>
           <p className="mt-3 text-ink-2">
-            Paid plans are not on sale yet. When they are, this page will name
-            the payment provider before you pay, and {site.name} will never see
-            your card details.
+            {site.name} is free during early access, so no payment details are
+            collected. If paid plans arrive, this page will name the payment
+            provider before anyone pays, and {site.name} will never see your
+            card details.
           </p>
 
           <h2 className="display display-sm mt-12">Contact</h2>

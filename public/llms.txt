@@ -17,18 +17,15 @@ Data sent to servers by the app: None. Veyro runs entirely on the Mac. The websi
 - Keeps the original artwork of every card. Each card has undo, and the whole wallet can be rewound to its first-connection state.
 - Changes only the image shown on the card. Apple Pay, card numbers, expiry dates, balances and bank connections are untouched.
 
-## Pricing (all one-time, USD)
+## Pricing
 
-- First upload: free
-- Five uploads: $4.99
-- Thirty days unlimited: $14.99, does not renew
-- Lifetime unlimited: $19.99, includes all future updates
-- Refunds: within 14 days, any reason
+- Free during early access: unlimited uploads, full gallery, undo, no account.
+- No payment system yet. Paid plans, if any, will be announced on the site first.
 
 ## Pages
 
 - [Home](https://veyro.biz/): product overview, how it works, comparison with Apple Wallet, pricing, download, FAQ
-- [FAQ](https://veyro.biz/#faq): answers on safety, Apple Pay compatibility, reverting cards, requirements, macOS approval and refunds
+- [FAQ](https://veyro.biz/#faq): answers on safety, Apple Pay compatibility, reverting cards, requirements, macOS approval and cost
 - [Pricing](https://veyro.biz/#pricing)
 - [Download](https://veyro.biz/#download)
 
