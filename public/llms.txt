@@ -7,7 +7,7 @@ Contact: hello@veyro.biz
 Platform: macOS 14 Sonoma or later (Apple silicon and Intel). Works with an iPhone on iOS 17 or later, connected by USB cable or Wi-Fi sync.
 Jailbreak required: No
 Account required: No
-Data sent to servers: None. Veyro runs entirely on the Mac.
+Data sent to servers by the app: None. Veyro runs entirely on the Mac. The website counts Download clicks (time, IP, user-agent) and page views (Cloudflare Web Analytics, cookieless).
 
 ## What Veyro does
 

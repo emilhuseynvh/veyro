@@ -9,7 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
-      images: [`${site.url}/opengraph-image`],
+    },
+    {
+      url: `${site.url}/open`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
     {
       url: `${site.url}/privacy`,

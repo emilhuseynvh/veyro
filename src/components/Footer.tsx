@@ -17,8 +17,6 @@ const groups = [
     links: [
       { href: "/#faq", label: "FAQ" },
       { href: `mailto:${site.email}`, label: "Email support" },
-      { href: site.social.github, label: "GitHub" },
-      { href: site.social.x, label: "X" },
     ],
   },
   {

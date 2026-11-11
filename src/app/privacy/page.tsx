@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: `${site.name} runs entirely on your Mac. No account, no server, no analytics. This page explains exactly what the app and this website do with data.`,
+  description: `The ${site.name} app runs entirely on your Mac and sends nothing. This page explains exactly what the app and this website do with data.`,
   alternates: { canonical: "/privacy" },
 };
 
@@ -17,29 +17,53 @@ export default function PrivacyPage() {
         <article className="container-x prose-veyro max-w-3xl">
           <h1 className="display display-md">Privacy</h1>
           <p className="lede mt-5">
-            The short version: {site.name} does not collect anything, because it
-            has nowhere to send it.
+            The short version: the {site.name} app sends nothing anywhere. This
+            website counts downloads and page visits, and that is all.
           </p>
+
           <h2 className="display display-sm mt-12">The app</h2>
           <p className="mt-3 text-ink-2">
             {site.name} runs locally on your Mac. It reads the list of cards in
             Apple Wallet on a connected iPhone and writes replacement artwork
             back. It does not read card numbers, expiry dates, balances or
             transactions. It has no account system, makes no network requests
-            of its own, and includes no analytics or crash reporting.
+            of its own, and includes no analytics or crash reporting. Your
+            images and your card list stay on your Mac.
           </p>
-          <p className="mt-3 text-ink-2">
-            Purchases are processed by the payment provider named at checkout.
-            {site.name} stores a local receipt so your purchase can be restored.
-          </p>
+
           <h2 className="display display-sm mt-12">This website</h2>
           <p className="mt-3 text-ink-2">
-            {site.domain} sets no cookies and runs no third-party trackers. The
-            hosting provider keeps standard server logs for security.
+            {site.domain} sets no cookies of its own and shows no ads. Two
+            things are measured:
           </p>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-ink-2">
+            <li>
+              <strong className="text-ink">Download clicks.</strong> When you
+              press Download, our server records the time, your IP address,
+              your browser&rsquo;s user-agent and whether you were on a Mac. We
+              use this only to count downloads and to stop abuse. It is never
+              sold or shared.
+            </li>
+            <li>
+              <strong className="text-ink">Page visits.</strong> The site is
+              served through Cloudflare, which provides Cloudflare Web
+              Analytics. It counts page views without cookies and without
+              building a profile of you. Cloudflare also keeps standard
+              security logs.
+            </li>
+          </ul>
+
+          <h2 className="display display-sm mt-12">Payments</h2>
+          <p className="mt-3 text-ink-2">
+            Paid plans are not on sale yet. When they are, this page will name
+            the payment provider before you pay, and {site.name} will never see
+            your card details.
+          </p>
+
           <h2 className="display display-sm mt-12">Contact</h2>
           <p className="mt-3 text-ink-2">
-            Questions go to{" "}
+            Questions, or a request to delete download records tied to your IP
+            address, go to{" "}
             <a href={`mailto:${site.email}`} className="underline">
               {site.email}
             </a>

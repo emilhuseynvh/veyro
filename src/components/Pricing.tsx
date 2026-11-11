@@ -83,8 +83,8 @@ export function Pricing() {
           })}
         </ul>
         <p className="mt-6 max-w-2xl text-sm text-mute">
-          Prices in USD, before local taxes. Purchases unlock inside the app
-          and restore on any Mac with the same receipt. Refunds within 14 days.
+          Paid plans are not on sale yet. Prices are in USD, before local
+          taxes, and every paid plan will carry a 14-day refund.
         </p>
       </div>
     </section>

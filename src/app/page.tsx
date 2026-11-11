@@ -8,7 +8,6 @@ import { Compare } from "@/components/Compare";
 import { Privacy } from "@/components/Privacy";
 import { Pricing } from "@/components/Pricing";
 import { Download } from "@/components/Download";
-import { Reviews } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 
@@ -26,7 +25,6 @@ export default function HomePage() {
         <Privacy />
         <Pricing />
         <Download />
-        <Reviews />
         <Faq />
       </main>
       <Footer />

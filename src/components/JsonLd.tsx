@@ -25,7 +25,6 @@ export function JsonLd() {
           width: 512,
           height: 512,
         },
-        sameAs: [site.social.x, site.social.github],
         contactPoint: {
           "@type": "ContactPoint",
           email: site.email,

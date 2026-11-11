@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 const points = [
   {
     title: "Nothing leaves your Mac",
-    body: "No account, no server, no analytics. Your images and your list of cards stay on the machine in front of you.",
+    body: "The app has no account and no analytics, and makes no network requests. Your images and your list of cards stay on the machine in front of you.",
   },
   {
     title: "Everything is reversible",

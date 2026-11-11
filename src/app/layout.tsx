@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description: site.description,
-    creator: "@veyroapp",
   },
   robots: {
     index: true,

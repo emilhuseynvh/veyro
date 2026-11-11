@@ -11,15 +11,11 @@ export function DesignCard({
   priority?: boolean;
 }) {
   return (
-    <div
-      className={`wcard ${className}`}
-      role="img"
-      aria-label={`${design.name} card design`}
-    >
+    <div className={`wcard ${className}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={design.img}
-        alt=""
+        alt={`${design.name} card design`}
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         className="wcard-face h-full w-full object-cover"

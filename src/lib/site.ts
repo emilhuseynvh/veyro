@@ -30,10 +30,6 @@ export const site = {
     version: "1.0.0",
     size: "181 MB",
   },
-  social: {
-    x: "https://x.com/veyroapp",
-    github: "https://github.com/veyroapp",
-  },
   launched: "2026-11-10",
 } as const;
 
@@ -118,7 +114,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Is my data sent anywhere?",
-    a: "No. Veyro runs entirely on your Mac. There is no account, no server and no analytics. Your images and card list never leave your machine.",
+    a: "Not by the app. Veyro runs entirely on your Mac with no account and no analytics, and your images and card list never leave it. This website only counts Download clicks and page visits; the privacy page lists exactly what.",
   },
   {
     q: "Why does macOS ask me to approve the app?",
