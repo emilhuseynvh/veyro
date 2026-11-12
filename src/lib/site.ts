@@ -26,7 +26,7 @@ export const site = {
     iphone: "iPhone on iOS 17 or later, connected by cable or Wi-Fi sync",
   },
   download: {
-    url: "/download/Veyro.dmg?v=5",
+    url: "/download/Veyro.dmg?v=6",
     version: "1.0.0",
     size: "122 MB",
   },
