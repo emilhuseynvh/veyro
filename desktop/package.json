@@ -8,7 +8,7 @@
   "main": "src/main/main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "bash scripts/stage-backend.sh && electron-builder --mac dir --arm64 && bash scripts/make-dmg.sh",
+    "dist": "bash scripts/fetch-python.sh && bash scripts/stage-backend.sh && electron-builder --mac dir --arm64 && bash scripts/make-dmg.sh",
     "pack": "electron-builder --dir"
   },
   "devDependencies": {

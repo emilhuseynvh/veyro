@@ -56,6 +56,19 @@ function findBinary(name) {
   return null;
 }
 
+// Resolve the Python interpreter. We ship a self-contained Python inside the
+// app (Contents/Resources/backend/python) so a fresh Mac with no developer
+// tools never triggers the "install command line developer tools" prompt. Fall
+// back to the system python3 only in development, where it is present.
+function pythonExecutable() {
+  const bundled = bundledBackend();
+  if (bundled) {
+    const p = path.join(bundled, "python", "bin", "python3");
+    if (fs.existsSync(p)) return p;
+  }
+  return "python3";
+}
+
 function isConfigured() {
   return true;
 }
@@ -68,7 +81,7 @@ function runPython(args, { timeout = 120000, onProgress } = {}) {
     const backendScript = findScript("aircard_backend.py");
     const scriptDir = path.dirname(backendScript);
 
-    const proc = spawn("python3", [backendScript, ...args], {
+    const proc = spawn(pythonExecutable(), [backendScript, ...args], {
       cwd: scriptDir,
       env: {
         ...process.env,

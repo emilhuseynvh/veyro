@@ -52,3 +52,6 @@ next-env.d.ts
 
 # backend has its own repo (veyro-api)
 /backend
+
+# Bundled standalone Python runtime (fetched at build time)
+/desktop/vendor/

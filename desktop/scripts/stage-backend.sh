@@ -22,5 +22,14 @@ cp card_assets.py "$DST/card_assets.py"
 cp bin/device_helper bin/airtraffic_host "$DST/bin/"
 chmod +x "$DST/bin/"*
 
+# Self-contained Python interpreter (python-build-standalone, arm64). Ships so a
+# fresh Mac never needs system python3 or the Xcode command line tools.
+if [ ! -x "vendor/python/bin/python3" ]; then
+  echo "ERROR: vendor/python not found. Fetch python-build-standalone into desktop/vendor/python first." >&2
+  exit 1
+fi
+echo "Copying bundled Python runtime..."
+ditto vendor/python "$DST/python"
+
 echo "Staged backend -> $DST"
 ls "$DST" "$DST/bin"
