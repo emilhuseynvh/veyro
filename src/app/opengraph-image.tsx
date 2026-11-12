@@ -57,10 +57,12 @@ export default async function OpenGraphImage() {
             fontSize: 32,
           }}
         >
-          <svg width="44" height="44" viewBox="0 0 96 96" fill="none">
-            <rect width="96" height="96" rx="24" fill="#1b1b20" />
-            <path d="M27 30 L48 66 L69 30" stroke="#6b6b73" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            <path d="M27 30 L48 66" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <svg width="46" height="46" viewBox="38 38 180 180" fill="none">
+            <path
+              fillRule="evenodd"
+              fill="#9453FF"
+              d="M74 46H142A28 28 0 0 1 170 74V142A28 28 0 0 1 142 170H74A28 28 0 0 1 46 142V74A28 28 0 0 1 74 46Z M114 86H182A28 28 0 0 1 210 114V182A28 28 0 0 1 182 210H114A28 28 0 0 1 86 182V114A28 28 0 0 1 114 86Z"
+            />
           </svg>
           {site.name}
         </div>

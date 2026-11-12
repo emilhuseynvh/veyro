@@ -1,0 +1,33 @@
+{
+  "brand": "Veyro",
+  "tagline": "Restyle your Wallet",
+  "brief": "A Mac app that restyles Apple Wallet card art on iPhone. The mark should feel premium, modern and next-gen — not a literal credit card, not a letter V.",
+  "adjectives": ["premium", "modern", "transformative", "clean"],
+  "criteria": "Success: ownable and abstract, recognisable at 16 px, works in one colour and reversed, expresses one surface taking on a new look.",
+  "industry": "software",
+  "mockups": ["app-icon", "payment-card", "website", "social", "terminal", "sticker"],
+  "nav": ["How it works", "Download", "Privacy"],
+  "brand_color": "#141414",
+  "tile_color": "#0E0E10",
+  "greyscale": false,
+  "designer": "Veyro brand",
+  "round": 2,
+  "concepts": [
+    {
+      "name": "Overlap",
+      "symbol": "veyro-symbol.svg",
+      "lockup": "veyro-horizontal.svg",
+      "symbol_on_tile": "export/veyro-symbol-app-icon.svg",
+      "lockup_on_dark": "veyro-horizontal-white.svg",
+      "idea": "Two surfaces overlap and a new window opens where they meet — restyling made into a mark.",
+      "rationale": [
+        "Abstract and ownable — not a card, not a V",
+        "Holds from 512 px down to a 16 px favicon",
+        "One shape, one radius system; works in a single colour and reversed",
+        "Pairs with a clean geometric 'veyro' wordmark"
+      ]
+    }
+  ],
+  "recommendation": "Overlap — the clearest expression of restyling, premium and next-gen, strong at every size.",
+  "next_steps": ["Approve colour (ink + optional purple accent)", "Final wordmark outlined from a geometric typeface", "Roll out across the app icon, website and store art"]
+}

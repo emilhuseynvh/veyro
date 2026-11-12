@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- thick ring (portal / stylised o) with an offset inner, giving a lens of depth -->
+  <circle cx="128" cy="128" r="78" fill="#141414"/>
+  <circle cx="139" cy="117" r="42" fill="#fff"/>
+</svg>

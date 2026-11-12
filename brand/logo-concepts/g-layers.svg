@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- rounded tile sliced into three diagonal skins -->
+  <defs><clipPath id="t"><path d="M84 40H172A44 44 0 0 1 216 84V172A44 44 0 0 1 172 216H84A44 44 0 0 1 40 172V84A44 44 0 0 1 84 40Z"/></clipPath></defs>
+  <g clip-path="url(#t)">
+    <rect x="0" y="0" width="256" height="256" fill="#141414"/>
+    <path d="M0 150 L150 0 L256 0 L0 256Z" fill="#6f6f6f"/>
+    <path d="M0 236 L236 0 L256 0 L256 40 L40 256 L0 256Z" fill="#b6b6b6"/>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- dark tile -->
+  <path fill="#141414" d="M84 40H172A44 44 0 0 1 216 84V172A44 44 0 0 1 172 216H84A44 44 0 0 1 40 172V84A44 44 0 0 1 84 40Z"/>
+  <!-- faceted gem, positive -->
+  <g>
+    <path fill="#e3e3e3" d="M98 100 H158 L186 126 L128 180 L70 126 Z"/>
+    <path fill="#b4b4b4" d="M98 100 L112 126 L70 126 Z"/>
+    <path fill="#b4b4b4" d="M158 100 L144 126 L186 126 Z"/>
+    <path fill="#cfcfcf" d="M112 126 H144 L128 180 Z"/>
+    <path fill="#9f9f9f" d="M70 126 H186 L128 180 Z" opacity="0"/>
+    <path fill="none" stroke="#141414" stroke-width="4" d="M70 126 H186 M112 126 L128 180 M144 126 L128 180 M112 126 L98 100 M144 126 L158 100"/>
+  </g>
+</svg>

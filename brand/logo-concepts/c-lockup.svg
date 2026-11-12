@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 256">
+  <g transform="translate(14,48) scale(0.625)">
+    <circle cx="128" cy="128" r="78" fill="#141414"/>
+    <circle cx="139" cy="117" r="42" fill="#fff"/>
+  </g>
+  <text x="212" y="172" font-family="Futura" font-size="130" font-weight="500" letter-spacing="-2" fill="#141414">veyro</text>
+</svg>

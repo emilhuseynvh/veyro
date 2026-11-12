@@ -4,27 +4,17 @@ export function Logo({ light = false }: { light?: boolean }) {
       <svg
         width="26"
         height="26"
-        viewBox="0 0 96 96"
+        viewBox="38 38 180 180"
         fill="none"
         aria-hidden
         className="shrink-0"
       >
-        <rect width="96" height="96" rx="24" fill="#161619" />
+        {/* Veyro "Overlap" mark: two surfaces meeting, a new window between them. */}
         <path
-          d="M27 30 L48 66 L69 30"
-          stroke="#6b6b73"
-          strokeWidth="12"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
-        />
-        <path
-          d="M27 30 L48 66"
-          stroke="#ffffff"
-          strokeWidth="12"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
+          fillRule="evenodd"
+          fill="#9453FF"
+          d="M74 46H142A28 28 0 0 1 170 74V142A28 28 0 0 1 142 170H74A28 28 0 0 1 46 142V74A28 28 0 0 1 74 46Z
+             M114 86H182A28 28 0 0 1 210 114V182A28 28 0 0 1 182 210H114A28 28 0 0 1 86 182V114A28 28 0 0 1 114 86Z"
         />
       </svg>
       <span

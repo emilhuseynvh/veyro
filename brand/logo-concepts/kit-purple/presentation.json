@@ -1,0 +1,28 @@
+{
+  "brand": "Veyro",
+  "tagline": "Restyle your Wallet",
+  "brief": "A Mac app that restyles Apple Wallet card art on iPhone. Premium, modern, next-gen.",
+  "adjectives": ["premium", "modern", "transformative", "clean"],
+  "criteria": "Ownable, abstract, strong at 16 px, works reversed. Purple on a dark tile.",
+  "industry": "software",
+  "mockups": ["app-icon", "payment-card", "website", "social", "terminal", "sticker"],
+  "nav": ["How it works", "Download", "Privacy"],
+  "brand_color": "#9453FF",
+  "tile_color": "#0E0E10",
+  "greyscale": false,
+  "designer": "Veyro brand",
+  "round": 3,
+  "concepts": [
+    {
+      "name": "Overlap · Purple",
+      "symbol": "veyro-symbol.svg",
+      "lockup": "veyro-horizontal.svg",
+      "symbol_on_tile": "veyro-app-icon.svg",
+      "lockup_on_dark": "veyro-horizontal-white.svg",
+      "idea": "Two surfaces overlap and a new window opens where they meet.",
+      "rationale": ["Purple mark on a dark tile — matches the site", "Holds from 512 px to a 16 px favicon", "One shape, one radius system", "Abstract — not a card, not a V"]
+    }
+  ],
+  "recommendation": "Overlap in purple on dark — premium and cohesive with the current site.",
+  "next_steps": ["Wire into favicon, app icon and site header", "Outline the wordmark from a geometric typeface"]
+}
