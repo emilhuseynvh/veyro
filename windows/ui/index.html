@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Veyro</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="titlebar">
+      <div class="tb-left">
+        <svg class="brand-mark" width="22" height="22" viewBox="0 0 96 96" fill="none" aria-hidden>
+          <rect width="96" height="96" rx="24" fill="#161619"/>
+          <rect x="1" y="1" width="94" height="94" rx="23" stroke="#2e2e35"/>
+          <path d="M27 30 L48 66 L69 30" stroke="#6b6b73" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M27 30 L48 66" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="wordmark">Veyro</span>
+      </div>
+      <div class="tb-right">
+        <div id="devicePill" class="device-pill" title="Connected device">
+          <span class="dot"></span><span id="deviceName">No device</span>
+        </div>
+        <button id="rescanBtn" class="ghost-btn" title="Refresh connected device">Refresh</button>
+      </div>
+    </div>
+
+    <main class="layout">
+      <section class="work">
+        <header class="work-head">
+          <div>
+            <h1>Your cards &amp; designs</h1>
+            <p class="sub">Pick a card on the right, then drag a design onto it or drop your own image.</p>
+          </div>
+          <div class="search">
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 14l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="search" type="search" placeholder="Search designs, moods, tags" />
+          </div>
+        </header>
+
+        <div class="tray">
+          <div id="dropZone" class="drop">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden><path d="M12 15V4M8 8l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>Drop an image</span>
+            <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+          </div>
+          <div id="trayCards" class="tray-cards"></div>
+        </div>
+
+        <div class="filters">
+          <div class="chips" id="catChips"></div>
+          <span id="countLabel" class="count"></span>
+        </div>
+
+        <div id="gallery" class="gallery"></div>
+      </section>
+
+      <aside class="phone-col">
+        <!-- Shown when no iPhone is reachable: how to connect, in 4 steps. -->
+        <div id="connectPanel" class="connect hidden">
+          <div class="connect-art">
+            <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="10.5" y="4" width="3" height="1.4" rx=".7" fill="currentColor"/></svg>
+          </div>
+          <h2>Connect your iPhone</h2>
+          <p class="connect-sub">Veyro reads and restyles the cards on your iPhone. Connect it to get started.</p>
+          <ol class="steps">
+            <li>
+              <span class="step-n">1</span>
+              <div class="step-txt"><strong>Plug it into this Mac</strong><span>Use a cable for the first connection.</span></div>
+            </li>
+            <li>
+              <span class="step-n">2</span>
+              <div class="step-txt"><strong>Unlock your iPhone</strong><span>Enter your passcode if it asks.</span></div>
+            </li>
+            <li>
+              <span class="step-n">3</span>
+              <div class="step-txt"><strong>Tap Trust</strong><span>When it asks “Trust This Computer?”, tap Trust.</span></div>
+            </li>
+            <li>
+              <span class="step-n">4</span>
+              <div class="step-txt"><strong>Open Wallet</strong><span>Tap each card you want to restyle. They show up here, ready to go.</span></div>
+            </li>
+          </ol>
+          <div id="connectStatus" class="connect-status">Looking for your iPhone…</div>
+          <button id="reconnectBtn" class="primary-btn">Reconnect</button>
+        </div>
+
+        <!-- Shown when a real iPhone is connected. -->
+        <div id="walletWrap" class="hidden">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="statusbar">
+                <span id="sbTime" class="sb-time">9:41</span>
+                <span class="sb-icons">
+                  <svg class="sb-ic" viewBox="0 0 18 12" width="18" height="12" aria-hidden><rect x="0" y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5" width="3" height="7" rx="1" fill="currentColor"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg>
+                  <svg class="sb-ic" viewBox="0 0 16 12" width="16" height="12" aria-hidden><path d="M8 11.2a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6Z" fill="currentColor"/><path d="M3.4 6.9a6.4 6.4 0 0 1 9.2 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M1 4.4a9.8 9.8 0 0 1 14 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                  <svg class="sb-ic sb-batt" viewBox="0 0 26 12" width="26" height="12" aria-hidden><rect x="0.6" y="0.6" width="21" height="10.8" rx="3" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.1"/><rect x="2.1" y="2.1" width="18" height="7.8" rx="1.8" fill="currentColor"/><rect x="23" y="4" width="2" height="4" rx="1" fill="currentColor" fill-opacity=".5"/></svg>
+                </span>
+              </div>
+              <div class="wallet-head">
+                <span class="wallet-title">Wallet</span>
+                <button id="addMock" class="plus" title="Add or scan card" aria-label="Add or scan card">
+                  <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <div id="walletStack" class="wallet-stack"></div>
+              <div id="scanHint" class="scan-hint">Looking for cards…</div>
+            </div>
+          </div>
+
+          <div class="phone-actions">
+            <div id="applyState" class="apply-state"><span class="dot"></span><span id="applyText">iPhone · Connected</span></div>
+            <button id="updateBtn" class="primary-btn" disabled>Update iPhone</button>
+          </div>
+          <div id="applyProgress" class="apply-progress hidden"><div id="applyProgressFill" class="apply-progress-fill"></div></div>
+          <p class="legal">Changes the card picture only. Numbers, balances and Apple Pay are untouched. Every change can be undone.</p>
+        </div>
+      </aside>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="designs.js"></script>
+    <script src="bridge.js"></script>
+    <script src="renderer.js"></script>
+  </body>
+</html>
