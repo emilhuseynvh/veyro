@@ -2,7 +2,7 @@ import { site } from "@/lib/site";
 import { cardDesigns } from "@/lib/cards";
 import { DesignCard } from "./DesignCard";
 import { PhoneMock } from "./PhoneMock";
-import { DownloadCTA } from "./DownloadCTA";
+import { DownloadCTA, WindowsDownloadCTA } from "./DownloadCTA";
 
 const byId = (id: string) => cardDesigns.find((d) => d.id === id)!;
 
@@ -45,6 +45,9 @@ export function Hero() {
             <DownloadCTA className="btn btn-accent !h-13 !px-7 text-base">
               Download for Mac
             </DownloadCTA>
+            <WindowsDownloadCTA className="btn btn-ink !h-13 !px-7 text-base">
+              Download for Windows
+            </WindowsDownloadCTA>
             <a href="#how-it-works" className="btn btn-ghost !h-13 !px-6">
               See how it works
             </a>

@@ -3,7 +3,41 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { site } from "@/lib/site";
-import { AppleMark, Check, Cross } from "./icons";
+import { AppleMark, Check, Cross, WindowsMark } from "./icons";
+
+/**
+ * Windows download button. The installer is a direct .exe download, so there is
+ * no "send to your Mac" modal — it just downloads and pings analytics.
+ */
+export function WindowsDownloadCTA({
+  className = "btn btn-ink",
+  children,
+}: {
+  className?: string;
+  children: ReactNode;
+}) {
+  function ping() {
+    const api = process.env.NEXT_PUBLIC_API_URL;
+    if (!api) return;
+    try {
+      void fetch(`${api}/api/v1/downloads`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ platform: "windows", version: site.downloadWin.version }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      /* analytics is best-effort */
+    }
+  }
+
+  return (
+    <a href={site.downloadWin.url} download onClick={ping} className={className}>
+      <WindowsMark className="h-4 w-4" />
+      {children}
+    </a>
+  );
+}
 
 /**
  * Download button that knows where it is. On a Mac it downloads the .dmg

@@ -23,12 +23,18 @@ export const site = {
   ],
   requirements: {
     mac: "macOS 14 Sonoma or later",
+    windows: "Windows 10 or 11 (64-bit)",
     iphone: "iPhone on iOS 17 or later, connected by cable or Wi-Fi sync",
   },
   download: {
     url: "/download/Veyro.dmg?v=6",
     version: "1.0.0",
     size: "122 MB",
+  },
+  downloadWin: {
+    url: "/download/Veyro_1.3.5_x64-setup.exe?v=1",
+    version: "1.3.5",
+    size: "12 MB",
   },
   launched: "2026-11-10",
 } as const;

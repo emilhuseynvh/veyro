@@ -1,5 +1,5 @@
 import { site } from "@/lib/site";
-import { DownloadCTA } from "./DownloadCTA";
+import { DownloadCTA, WindowsDownloadCTA } from "./DownloadCTA";
 
 export function Download() {
   return (
@@ -24,10 +24,18 @@ export function Download() {
                 <DownloadCTA className="btn btn-accent">
                   Download the .dmg
                 </DownloadCTA>
+                <WindowsDownloadCTA className="btn btn-ink">
+                  Download for Windows
+                </WindowsDownloadCTA>
                 <a href="/open" className="btn btn-ghost">
                   How to open Veyro
                 </a>
               </div>
+              <p className="mt-3 text-sm text-mute">
+                Windows version {site.downloadWin.version},{" "}
+                {site.downloadWin.size}. Needs {site.requirements.windows} and
+                Apple&nbsp;Devices (or iTunes) installed.
+              </p>
             </div>
             <div className="rounded-2xl bg-black/30 p-6 ring-1 ring-line">
               <h3 className="font-semibold">First launch on macOS</h3>

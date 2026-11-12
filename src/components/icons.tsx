@@ -8,6 +8,14 @@ export function AppleMark(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function WindowsMark(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>
+      <path d="M3 5.4 10.3 4.4V11.3H3V5.4zM10.3 12.7V19.6L3 18.6V12.7H10.3zM11.5 4.2 21 3V11.3H11.5V4.2zM21 12.7V21L11.5 19.8V12.7H21z" />
+    </svg>
+  );
+}
+
 export function Check(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
