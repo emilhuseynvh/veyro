@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { Logo } from "./Logo";
+import { MilliNetBadge } from "./MilliNetBadge";
 
 const groups = [
   {
@@ -61,7 +62,10 @@ export function Footer() {
             </nav>
           ))}
         </div>
-        <p className="mt-12 max-w-3xl text-xs leading-relaxed text-mute">
+        <div className="mt-12">
+          <MilliNetBadge />
+        </div>
+        <p className="mt-8 max-w-3xl text-xs leading-relaxed text-mute">
           {site.name} is an independent project and is not affiliated with or
           endorsed by Apple Inc. Apple, Apple Pay, Apple Wallet, iPhone and Mac
           are trademarks of Apple Inc. Card designs shown are illustrations and
